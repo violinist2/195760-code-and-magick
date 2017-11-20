@@ -14,13 +14,13 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = '#000';
 
   var max = -1;
-  //var maxIndex = -1;
+
 
   for (var i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
       max = time;
-     // maxIndex = i;
+
     }
   }
 
@@ -45,7 +45,7 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillStyle = 'rgba(0, 0, 255,' + i / 4 + 1 + ')';
       ctx.fillRect(initialX + indent * i, initialY, barHeigth, times[i] * -step);
     }
-   }
+  }
 
 };
 
