@@ -1,4 +1,4 @@
-
+'use strict';
 window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.fillRect(110, 20, 420, 270);
@@ -14,26 +14,26 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = '#000';
 
   var max = -1;
-  var maxIndex = -1;
+  //var maxIndex = -1;
 
-  for (var i = 0 ; i < times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > max) {
       max = time;
-      maxIndex = i;
+     // maxIndex = i;
     }
   }
 
-   var histogramWidth = 150;
-   var step = histogramWidth / (max - 0);
-   var barHeigth = 40;
-   var indent = 90;
-   var initialX = 140;
-   var initialY = 250;
-   var initialTextY = 270;
-   var initialPointsY = 90;
+  var histogramWidth = 150;
+  var step = histogramWidth / (max - 0);
+  var barHeigth = 40;
+  var indent = 90;
+  var initialX = 140;
+  var initialY = 250;
+  var initialTextY = 270;
+  var initialPointsY = 90;
 
-   for(var i = 0; i < times.length; i++) {
+  for (i = 0; i < times.length; i++) {
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     ctx.fillRect(initialX + indent * i, initialY, barHeigth, times[i] * -step);
     ctx.fillStyle = '#000';
@@ -42,7 +42,7 @@ window.renderStatistics = function (ctx, names, times) {
 
     if (names[i].indexOf('Вы')) {
       ctx.fillStyle = 'white';
-      ctx.fillStyle = 'rgba(0, 0, 255,' + i/4 + 1 +')';
+      ctx.fillStyle = 'rgba(0, 0, 255,' + i / 4 + 1 + ')';
       ctx.fillRect(initialX + indent * i, initialY, barHeigth, times[i] * -step);
     }
    }
